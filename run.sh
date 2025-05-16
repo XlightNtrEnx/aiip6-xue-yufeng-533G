@@ -4,4 +4,4 @@ URL="https://techassessment.blob.core.windows.net/aiip6-assessment-data/bmarket.
 DEST_DIR="/data"
 sudo mkdir -p "$DEST_DIR"
 sudo curl -o "$DEST_DIR/bmarket.db" "$URL"
-sudo python src/main.py
+python src/main.py
