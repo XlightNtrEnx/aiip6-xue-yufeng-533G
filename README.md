@@ -15,10 +15,15 @@ Contains bmarket.db
 main.py puts the data (./data.py) through the pipelines (./pipelines).
 
 In the pipelines folder, we have multiple pipelines put into their .py files.
+
 lr.py - Logistic Regression
+
 nb.py - Naive Bayes
+
 nn.py - Neural Network
+
 svm.py - Support Vector Machine
+
 tree.py - Tree
 
 ```py
@@ -156,9 +161,13 @@ All values 'unknown' were replaced with NA
 I used every model I could think of since we can never be sure which model is good, but I'll explain the rationale for each configuration.
 
 Logistic Regression - Set class_weight="balanced" since we're dealing with imbalanced data
+
 Naive Bayes - GaussianNB because of a continuous numerical data.
+
 Neural Network - SGD because it seemed to perform better than Adam and deeper layers couldn't work because of vanishing gradient problem.
+
 Support Vector Machine - Set class_weight="balanced", used random undersampling and SMOTE since we're dealing with imbalanced data
+
 Tree - Experimented with different scale_pos_weight because of imbalanced data. Found a formula that works and applied it to get that value.
 
 ## h. Evaluation of the models developed. Any metrics used in the evaluation should also be explained.
@@ -188,7 +197,9 @@ I get the top 3 performers here.
 ```
 
 3rd place: 2nd neural network in nn.py
+
 2nd place: 3rd tree in tree.py
+
 1st place: 2nd tree in tree.py
 
 ```py
