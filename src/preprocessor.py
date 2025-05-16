@@ -75,6 +75,25 @@ def make_preprocessor(transformers):
 
 
 def standard_preprocessor():
+    '''
+    return ("preprocessor", ColumnTransformer(
+        transformers=[
+            ("boolean", Pipeline(steps=[
+                ("to_categorical", FunctionTransformer(lambda X: X.astype('object'))),
+                ("onehot", OneHotEncoder(handle_unknown="error", sparse_output=False))
+            ]), bool_features),
+            ("categorical", Pipeline(steps=[
+                ("imputation_constant", SimpleImputer(fill_value="missing", strategy="constant")),
+                ("onehot", OneHotEncoder(handle_unknown="error", sparse_output=False))
+            ]), cat_features)
+            ("numerical", Pipeline(steps=[
+                ("imputation_constant", SimpleImputer(fill_value=-1, strategy="constant")),
+                ("scaler", StandardScaler()),
+            ]), num_features)
+
+        ]
+    ))
+    '''
     return make_preprocessor([
         standard_cat_pipeline(),
         standard_bool_pipeline(),
