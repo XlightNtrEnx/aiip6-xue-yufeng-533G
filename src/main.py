@@ -1,15 +1,11 @@
 import logging
-import os
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score, recall_score, precision_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
+from logger import formatter
 from data import X, y
 from pipelines import lr_pipes, nb_pipes, nn_pipes, svm_pipes, tree_pipes
-from logger import formatter
-
-
-os.makedirs("logs", exist_ok=True)
 
 top = []
 top_logger = logging.getLogger("top_" + __name__)
